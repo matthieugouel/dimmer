@@ -2,3 +2,6 @@
 .swiftpm/
 *.xcodeproj
 .DS_Store
+Dimmer.app/
+AppIcon.iconset/
+AppIcon.icns

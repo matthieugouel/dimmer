@@ -30,7 +30,7 @@ final class StatusBarController: NSObject, NSMenuDelegate {
 
     private func configureButton() {
         guard let button = statusItem.button else { return }
-        button.image = NSImage(systemSymbolName: "sun.min", accessibilityDescription: Constants.appName)
+        button.image = NSImage(systemSymbolName: "moon.stars.fill", accessibilityDescription: Constants.appName)
     }
 
     private func buildMenu() {

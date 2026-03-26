@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#0f0c29"/>
+      <stop offset="50%" stop-color="#1a1a4e"/>
+      <stop offset="100%" stop-color="#24243e"/>
+    </linearGradient>
+    <linearGradient id="moon" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#ffe566"/>
+      <stop offset="100%" stop-color="#ffaa00"/>
+    </linearGradient>
+    <linearGradient id="star" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#ffe566"/>
+    </linearGradient>
+    <filter id="moonGlow">
+      <feGaussianBlur stdDeviation="30" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="starGlow">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="dotGlow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1024" height="1024" rx="228" ry="228" fill="url(#bg)"/>
+
+  <!-- Background stars (dots with glow) -->
+  <circle cx="180" cy="200" r="5" fill="#ffffff" opacity="0.7" filter="url(#dotGlow)"/>
+  <circle cx="820" cy="160" r="4" fill="#ffffff" opacity="0.5" filter="url(#dotGlow)"/>
+  <circle cx="280" cy="120" r="3" fill="#ffffff" opacity="0.4" filter="url(#dotGlow)"/>
+  <circle cx="860" cy="450" r="4" fill="#ffffff" opacity="0.5" filter="url(#dotGlow)"/>
+  <circle cx="150" cy="550" r="3" fill="#ffffff" opacity="0.35" filter="url(#dotGlow)"/>
+  <circle cx="750" cy="780" r="4" fill="#ffffff" opacity="0.4" filter="url(#dotGlow)"/>
+  <circle cx="220" cy="750" r="3" fill="#ffffff" opacity="0.5" filter="url(#dotGlow)"/>
+  <circle cx="880" cy="680" r="3" fill="#ffffff" opacity="0.3" filter="url(#dotGlow)"/>
+  <circle cx="130" cy="380" r="3" fill="#ffffff" opacity="0.4" filter="url(#dotGlow)"/>
+
+  <!-- Crescent moon -->
+  <circle cx="460" cy="480" r="260" fill="url(#moon)" filter="url(#moonGlow)"/>
+  <circle cx="570" cy="390" r="220" fill="url(#bg)"/>
+
+  <!-- Big star in the crescent -->
+  <polygon points="660,270 676,316 724,316 686,346 698,392 660,364 622,392 634,346 596,316 644,316" fill="url(#star)" filter="url(#starGlow)"/>
+
+  <!-- Smaller star above -->
+  <polygon points="740,180 749,208 778,208 755,226 763,254 740,238 717,254 725,226 702,208 731,208" fill="url(#star)" opacity="0.85" filter="url(#starGlow)"/>
+
+  <!-- Tiny star -->
+  <polygon points="580,220 586,238 604,238 590,250 594,268 580,258 566,268 570,250 556,238 574,238" fill="#ffffff" opacity="0.7" filter="url(#starGlow)"/>
+</svg>

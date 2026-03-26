@@ -9,9 +9,6 @@ Dimmer works by adjusting your display's gamma transfer function, which means it
 - Menu bar app with no dock icon
 - Preset dim levels: 10%, 20%, 50%, 75%
 - Works in full-screen mode without blinking
-- Works across all Spaces and desktops
-- Multi-monitor support
-- Remembers your last dim level between sessions
 
 ## Build & Run
 
@@ -20,6 +17,13 @@ Requires Swift 5.9+ and macOS 13+.
 ```bash
 swift build
 .build/debug/Dimmer
+```
+
+To build a `.app` bundle you can drag to `/Applications`:
+
+```bash
+make bundle
+cp -r Dimmer.app /Applications/Dimmer.app
 ```
 
 ## How It Works
