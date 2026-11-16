@@ -3,7 +3,7 @@ import AppKit
 @main
 final class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusBarController: StatusBarController!
-    private var overlayManager: OverlayManager!
+    private var dimManager: DimManager!
 
     static func main() {
         let app = NSApplication.shared
@@ -22,7 +22,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        overlayManager = OverlayManager()
-        statusBarController = StatusBarController(overlayManager: overlayManager)
+        dimManager = DimManager()
+        statusBarController = StatusBarController(dimManager: dimManager)
+    }
+
+    func applicationWillTerminate(_ notification: Notification) {
+        dimManager.clear()
     }
 }
