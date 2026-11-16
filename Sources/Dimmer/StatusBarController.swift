@@ -2,11 +2,11 @@ import AppKit
 
 final class StatusBarController: NSObject, NSMenuDelegate {
     private let statusItem: NSStatusItem
-    private let overlayManager: OverlayManager
+    private let dimManager: DimManager
     private var opacityMenuItems: [NSMenuItem] = []
 
-    init(overlayManager: OverlayManager) {
-        self.overlayManager = overlayManager
+    init(dimManager: DimManager) {
+        self.dimManager = dimManager
         self.statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
         super.init()
         configureButton()
@@ -16,7 +16,7 @@ final class StatusBarController: NSObject, NSMenuDelegate {
     func updateMenuState() {
         for item in opacityMenuItems {
             let opacity = Double(item.tag) / 100.0
-            item.state = (overlayManager.isDimming && opacity == overlayManager.currentOpacity) ? .on : .off
+            item.state = (dimManager.isDimming && opacity == dimManager.currentOpacity) ? .on : .off
         }
     }
 
@@ -66,10 +66,10 @@ final class StatusBarController: NSObject, NSMenuDelegate {
 
     @objc private func opacitySelected(_ sender: NSMenuItem) {
         let opacity = Double(sender.tag) / 100.0
-        overlayManager.setOpacity(opacity)
+        dimManager.setOpacity(opacity)
     }
 
     @objc private func clearSelected() {
-        overlayManager.clear()
+        dimManager.clear()
     }
 }

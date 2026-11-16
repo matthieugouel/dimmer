@@ -30,6 +30,8 @@ cp -r Dimmer.app /Applications/Dimmer.app
 
 Dimmer uses the Core Graphics `CGSetDisplayTransferByFormula` API to modify the display's color transfer function. By reducing the maximum output value for each color channel (red, green, blue), the effective brightness of the display is lowered. Calling `CGDisplayRestoreColorSyncSettings` restores the original display settings when dimming is cleared.
 
+The override is released before the display or system sleeps and re-applied a couple of seconds after wake, so it never sits on the display across a sleep/wake transition (where it could contend with `corebrightnessd`). It is also released when the app quits.
+
 This approach operates below the window system, so it is unaffected by Spaces transitions, full-screen animations, or window layering.
 
 ## Acknowledgements
